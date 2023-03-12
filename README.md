@@ -3,9 +3,11 @@
 ## Overview
 
 This is a script that extracts HTML content from a webpage and its sub-pages (single depth layer), translates the content to a specified language, and saves the translated content to local HTML files. The script uses the Selenium WebDriver, Beautiful Soup, tqdm, and googletrans Python libraries.
-Files
 
-    utils.py: a Python module containing utility functions used in the script.
+## Files
+
+    - utils.py: a Python module containing utility functions used in the script.
+    - main.py: contains the body to run the script.
 
 ## Functions
 
@@ -48,10 +50,10 @@ To use the script, run the perform_one_layer_depth_and_get_links function in `ma
     - translated_lang (str): the language to translate the HTML content to.
 
 The function will: 
-- extract the main webpage
-- translate its content to the specified language
-- extract all href links from the page, preprocess the anchor links to point to local HTML files, and save the updated HTML content to a file with the specified name 
-  - to be able to navigate through the pages without backend server
+- extract the main webpage.
+- translate its content to the specified language.
+- extract all href links from the page, preprocess the anchor links to point to local HTML files, and save the updated HTML content to a file with the specified name.
+  - to be able to navigate through the pages without backend server.
 - extract the processed HTML file and any sub-pages will be saved to the same directory as the script.
 
 ## Run
