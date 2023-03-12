@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a script that extracts HTML content from a webpage and its sub-pages, translates the content to a specified language, and saves the translated content to local HTML files. The script uses the Selenium WebDriver, Beautiful Soup, tqdm, and googletrans Python libraries.
+This is a script that extracts HTML content from a webpage and its sub-pages (single depth layer), translates the content to a specified language, and saves the translated content to local HTML files. The script uses the Selenium WebDriver, Beautiful Soup, tqdm, and googletrans Python libraries.
 Files
 
     utils.py: a Python module containing utility functions used in the script.
@@ -57,3 +57,14 @@ The function will:
 ## Run
     - pip install <Required Dependecies>
     - python main.py
+
+
+## Future Work
+- Develop a script that is capable of functioning across multiple depth layers (General).
+    - This task necessitates significant computational and network resources.
+- Revise the script to adhere to the Object-Oriented Programming (OOP) paradigm.
+- Implement the script as a Graphical User Interface (GUI) Toolbox for production use.
+
+
+## Deployed Demo
+[Website Demo]()

@@ -67,7 +67,7 @@ def close_driver(driver: webdriver.Chrome) -> None:
     driver.quit()
 
 
-def scrap_translate_webpage(src:str, dst:str, translated_lang:str) -> None:
+def scrap_translate_webpage(src: str, dst: str, translated_lang: str) -> None:
     # Set up Chrome WebDriver instance and load the source URL
     driver = set_up_driver(src)
 
@@ -93,12 +93,13 @@ def extract_href_links(soup: BeautifulSoup, website_url) -> list:
     href_links = [a.get("href") for a in soup.find_all("a") if a.get("href")]
     href_links = [link.replace(website_url, "") for link in href_links]
     href_links = [elem for elem in href_links if elem != '/']
-    href_links = [item for item in href_links if not any(substring in item for substring in ['https', 'http', 'mailto'])]
+    href_links = [item for item in href_links if
+                  not any(substring in item for substring in ['https', 'http', 'mailto'])]
 
     return href_links
 
 
-def preprocess_anchor_src(src: str, dst: str, website_url:str) -> None:
+def preprocess_anchor_src(src: str, dst: str, website_url: str) -> None:
     # Open the source HTML file and create a BeautifulSoup object
     with open(f'{src}.html', 'r', encoding='utf-8') as file:
         html_content = file.read()
@@ -121,7 +122,7 @@ def preprocess_anchor_src(src: str, dst: str, website_url:str) -> None:
 
 
 def perform_one_layer_depth_and_get_links(website_url, final_page, translated_lang):
-    PROCESSED_PAGE = "test" # The processed page name
+    PROCESSED_PAGE = "test"  # The processed page name
 
     # Extract the main webpage and translate it
     scrap_translate_webpage(website_url, PROCESSED_PAGE, translated_lang)
@@ -132,8 +133,8 @@ def perform_one_layer_depth_and_get_links(website_url, final_page, translated_la
         href_links = extract_href_links(soup, website_url)
 
     # Scrape all external nodes
-    for page in tqdm(href_links):
-        src = website_url+page
+    for page in tqdm(href_links[::-1]):  # reverse links to scrap from the top page external links first
+        src = website_url + page
         scrap_translate_webpage(src, page, translated_lang)
 
     # Adjust external nodes' href links relative to the main node
