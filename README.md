@@ -34,7 +34,8 @@ This is a script that extracts HTML content from a webpage and its sub-pages (si
     - perform_one_layer_depth_and_get_links(website_url, final_page, translated_lang): extracts the main webpage, translates its content to the specified language, extracts all href links from the page, and preprocesses the anchor links to point to local HTML files.
 
 ## Dependencies
-- Selenium WebDriver
+- Selenium
+  - WebDriver
 - Beautiful Soup
 - tqdm
 - googletrans
@@ -69,4 +70,9 @@ The function will:
 
 
 ## Deployed Demo
-[Website Demo]()
+  - Notes:
+    - The website demo comprises five HTML files that can function independently without a backend server, namely `index.html`, `_about_careers.html`, `_contact.html`, `_help.html`, and `_about.html`.
+    - The script is capable of scraping a single layer depth. When applied to the index HTML file, it can extract more than 369 external links (HTML files). However, scraping all the links at this depth would lead to the generation of 370 HTML files, which can take several hours to load.
+    - Due to limitations in computational and network resources, the script was modified to scrap only five HTML files. Each of these HTML pages takes approximately 3.2 minutes to load.
+  - [Website Demo]()
+    - navigate through the right-bottom footer links in `index.html`.

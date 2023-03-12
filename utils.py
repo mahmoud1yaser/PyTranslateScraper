@@ -133,7 +133,7 @@ def perform_one_layer_depth_and_get_links(website_url, final_page, translated_la
         href_links = extract_href_links(soup, website_url)
 
     # Scrape all external nodes
-    for page in tqdm(href_links[::-1]):  # reverse links to scrap from the top page external links first
+    for page in tqdm(href_links[::-1]): # reverse links to scrap from the top HTML page external links first
         src = website_url + page
         scrap_translate_webpage(src, page, translated_lang)
 
