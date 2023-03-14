@@ -81,3 +81,4 @@ The function will:
     - Due to limitations in computational and network resources, the script was modified to scrap only five HTML files. Each of these HTML pages takes approximately 3.2 minutes to load.
   - [Website Demo](https://mahmoud1yaser.github.io/classcentral.demo/)
     - navigate through the right-bottom footer links in `index.html`.
+  - [Demo Video](https://drive.google.com/file/d/1ARELtWRwkiCMUCB3bZiyIeyQyoG4HcxM/view?usp=share_link)
